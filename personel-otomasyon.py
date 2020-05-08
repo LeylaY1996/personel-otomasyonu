@@ -1,20 +1,24 @@
 from time import sleep
-print("##########################")
-print("#        PERSONEL        #")
-print("#        OTOMASYON       #")
-print("#        SİSTEMİ         #")
-print("##########################")
+def title():
+    print("##########################")
+    print("#        PERSONEL        #")
+    print("#        OTOMASYON       #")
+    print("#        SİSTEMİ         #")
+    print("##########################")
 
-print("*****************MENU*****************")
-print("*  1.Personel Dosyaya Yaz            *")
-print("*  2.Personel Ekleme                 *")
-print("*  3.Personel Güncelleme             *")
-print("*  4.Personel Arama                  *")
-print("*  5.Personel Silme                  *")
-print("*  6.Personel Maaş Hesaplama         *")
-print("*  7.Menüden Çıkış veya Menüye geri dönüş*")
-print("*  8.Personel GÖrüntüleme         *")
-print("**************************************")
+def menu():
+    print("*****************MENU*****************")
+    print("*  1.Personel Dosyaya Yaz            *")
+    print("*  2.Personel Ekleme                 *")
+    print("*  3.Personel Güncelleme             *")
+    print("*  4.Personel Arama                  *")
+    print("*  5.Personel Silme                  *")
+    print("*  6.Personel Maaş Hesaplama         *")
+    print("*  7.Menüden Çıkış veya Menüye geri dönüş*")
+    print("*  8.Personel GÖrüntüleme         *")
+    print("*  9.Exit         *")
+    print("**************************************")
+
 personel_dict = {
     0: {
         "Personel Adı": "denme",
@@ -229,4 +233,36 @@ def main_function(personel_dict):
             personel_goruntuleme(personel_dict)
     else:
         print("Doğru seçim yapınız")
-main_function(personel_dict)
+# main_function(personel_dict)
+
+def exit():
+    exit()
+
+def main():
+    title()
+    while True:
+        menu()
+        secim = int(input("Menüden seciminizi yapınız:(1 ve 8 arasında secim yapınız.1 ve 8 dahil)"))
+        if (secim < 9 and secim > 0):
+            if (secim == 1):
+                dosyaya_yaz(personel_dict)
+            elif (secim == 2):
+                personel_ekleme(personel_dict)
+            elif (secim == 3):
+                personel_guncelleme(personel_dict)
+            elif (secim == 4):
+                personel_arama(personel_dict)
+            elif (secim == 5):
+                personel_silme(personel_dict)
+            elif (secim == 6):
+                personel_maas_hesaplama(personel_dict)
+            elif (secim == 7):
+                menuden_cikis()
+            elif (secim == 8):
+                personel_goruntuleme(personel_dict)
+        else:
+            print("Doğru seçim yapınız")
+
+
+if __name__ == '__main__':
+    main()
