@@ -1,4 +1,2 @@
 0   {'Personel Adı': 'denme', 'Personel Yaşı': 25, 'Personel Departman': 'Mühendis', 'Personel Adres': 'njkjk', 'Personel Telefon': 0, 'Personel Maaşı': 3500, 'Personelin Bildiği Programlama Dilleri': ['Python', 'Php']}
 1   {'Personel Adı': 'Ford', 'Personel Yaşı': 25, 'Personel Departman': 'Mühendis', 'Personel Adres': 'njkjk', 'Personel Telefon': 0, 'Personel Maaşı': 3500, 'Personelin Bildiği Programlama Dilleri': ['Python', 'Php']}
-4   {'Personel Adı': 'kfjfj', 'Personel Yaşı': 32, 'Personel Departman': 'rkkr', 'Personel Telefon': '2345', 'Personel Maaşı': 345, 'Personelin Bildiği Programlama Dilleri': 're'}
-34   {'Personel Adı': 'fgf', 'Personel Yaşı': 23, 'Personel Departman': 'dfdf', 'Personel Telefon': '23456', 'Personel Maaşı': 2345, 'Personelin Bildiği Programlama Dilleri': 'deeeed'}

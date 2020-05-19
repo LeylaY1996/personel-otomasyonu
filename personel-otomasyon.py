@@ -41,6 +41,76 @@ personel_dict = {
 
 }
 
+# calısıyor
+def personel_ekleme(personel_dict):
+    print("Yeni Personel Eklemek için:")
+    print("Doldurmanız gereken bilgiler")
+    id = int(input("id degeri giriniz:"))
+
+    if (id in personel_dict):
+        print("Girdiğiniz id degeri bulunmaktadır başka bir id degeri giriniz")
+        personel_ekleme(personel_dict)
+    else:
+        personel_dict[id] = {}
+        personel_dict[id]['Personel Adı'] = str(input("Personel ad ve soyad degeri giriniz:"))
+        personel_dict[id]['Personel Yaşı'] = int(input("yas degeri giriniz:"))
+        personel_dict[id]['Personel Departman'] = str(input("departman degeri giriniz:"))
+        personel_dict[id]['Personel Telefon'] = str(input("telefon degeri giriniz:"))
+        personel_dict[id]['Personel Maaşı'] = int(input("maas degeri giriniz:"))
+        personel_dict[id]['Personelin Bildiği Programlama Dilleri'] = str(input("dil degeri giriniz:"))
+
+        # personel yeni eklenen deger
+        print(personel_dict[id])
+
+    # sözlükteki tüm degerler
+    for item in personel_dict:
+        print("Personel ID'si : {} , Değerleri : {}".format(item, personel_dict[item]))
+    menuden_cikis()
+
+# çalışmıyor
+def personel_guncelleme(personel_dict):
+    print("Personel Güncelleme gelecek olan fonk")
+    # sözlükteki tüm degerler
+    for item in personel_dict:
+        print("Key : {} , Value : {}".format(item, personel_dict[item]))
+
+    print("\n\n")
+    id = int(input("id degeri giriniz:"))
+
+    if (id in personel_dict):
+        guncelleme_secim = int(input("Personel Adı icin 1\n"
+              "Personel Yaşı icin 2\n"
+              "Personel Departman icin 3\n"
+              "Personel Adres icin 4\n"
+              "Personel Telefon icin 5\n"
+              "Personel Maaşı icin 6\n"
+              "Personel bildiği diller icin 7 secimi yapınız:"))
+
+        if(guncelleme_secim == 1):
+            ad = str(input("Personel adını giriniz:"))
+            yeni_ad = personel_dict[id][ad]
+            personel_dict[id]["Personel Adı"].update(yeni_ad)
+        elif(guncelleme_secim == 2):
+            yas = int(input("Personel yaşını giriniz:"))
+            yeni_yas = personel_dict[id][yas]
+            personel_dict[id]["Personel Yaşı"].update(yeni_yas)
+        elif (guncelleme_secim == 3):
+            departman = str(input("Personel departman giriniz:"))
+            yeni_departman = personel_dict[id][departman]
+            personel_dict[id]["Personel Departman"].update(yeni_departman)
+        elif (guncelleme_secim == 4):
+            adres = str(input("Personel adres giriniz:"))
+            yeni_adres = personel_dict[id][adres]
+            personel_dict[id]["Personel Adres"].update(yeni_adres)
+
+            # sözlükteki tüm degerler
+            for item in personel_dict:
+                print("Personel ID'si : {} , Değerleri : {}".format(item, personel_dict[item]))
+
+    else:
+        print("aranılan id değeri personel sözlüğümüzde bulunmamakktadır\n\n")
+        return False
+
 
 # çalışıyor
 def personel_goruntuleme(personel_dict):
@@ -49,8 +119,7 @@ def personel_goruntuleme(personel_dict):
 
         for key in p_info:
             print(key + ':', p_info[key])
-
-
+    menuden_cikis()
 # çalışıyor
 def dosyaya_yaz(personel_dict):
     print("Dosyayaa yazma fonk")
@@ -60,75 +129,7 @@ def dosyaya_yaz(personel_dict):
         b = f.write(s)
 
     f.close()
-
-
-# calısıyor
-def personel_ekleme(personel_dict):
-    print("Yeni Personel Eklemek için:")
-    print("Doldurmanız gereken bilgiler")
-    id = int(input("id degeri giriniz:"))
-    personel_dict[id] = {}
-    personel_dict[id]['Personel Adı'] = str(input("Personel ad ve soyad degeri giriniz:"))
-    personel_dict[id]['Personel Yaşı'] = int(input("yas degeri giriniz:"))
-    personel_dict[id]['Personel Departman'] = str(input("departman degeri giriniz:"))
-    personel_dict[id]['Personel Telefon'] = str(input("telefon degeri giriniz:"))
-    personel_dict[id]['Personel Maaşı'] = int(input("maas degeri giriniz:"))
-    personel_dict[id]['Personelin Bildiği Programlama Dilleri'] = str(input("dil degeri giriniz:"))
-
-    # personel yeni eklenen deger
-    print(personel_dict[id])
-
-    # sözlükteki tüm degerler
-    for item in personel_dict:
-        print("Key : {} , Value : {}".format(item, personel_dict[item]))
-
-
-# çalışmıyor
-def personel_guncelleme(personel_dict):
-    print("Personel Güncelleme gelecek olan fonk")
-    # sözlükteki tüm degerler
-    for item in personel_dict:
-        print("Key : {} , Value : {}".format(item, personel_dict[item]))
-
-    print("Personel arama gelecek fonk")
-    print("Güncellemek istediğiniz id seicn gereken bilgiler")
-
-    id = int(input("id degeri giriniz:"))
-    if (id in personel_dict):
-        print("Güncellenecek id değeri personel sözlüğümüzde bulunmaktadır")
-        print("Güncellemek istediğiniz value seicn gereken bilgiler")
-
-        value = str(input("value degeri giriniz:"))
-        if (value in personel_dict[id]['Personel Adı']):
-            personel_dict.update[id]['Personel Adı'] = "deneme"
-            print("yeni personel adı:", personel_dict.update[id]['Personel Adı'])
-        elif (value not in personel_dict[id]['Personel Adı']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personel Yaşı']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (int(value) not in personel_dict[id]['Personel Yaşı']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personel Departman']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personel Departman']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personel Telefon']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personel Telefon']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personel Maaşı']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personel Maaşı']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personelin Bildiği Programlama Dilleri']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personelin Bildiği Programlama Dilleri']):
-            print("aranılan value degeri bulunmamaktadır")
-        return True
-    else:
-        print("aranılan id değeri personel sözlüğümüzde bulunmamakktadır")
-        return False
-
+    menuden_cikis()
 
 # calısıyor
 def personel_arama(personel_dict):
@@ -140,31 +141,56 @@ def personel_arama(personel_dict):
         print("aranılan id değeri personel sözlüğümüzde bulunmaktadır")
         print("Aramak istediğiniz value seicn gereken bilgiler")
 
-        value = str(input("value degeri giriniz:"))
-        if (value in personel_dict[id]['Personel Adı']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personel Adı']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personel Yaşı']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personel Yaşı']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personel Departman']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personel Departman']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personel Telefon']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personel Telefon']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personel Maaşı']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personel Maaşı']):
-            print("aranılan value degeri bulunmamaktadır")
-        if (value in personel_dict[id]['Personelin Bildiği Programlama Dilleri']):
-            print("aranılan value degeri bulunmaktadır")
-        elif (value not in personel_dict[id]['Personelin Bildiği Programlama Dilleri']):
-            print("aranılan value degeri bulunmamaktadır")
+        arama_secim = int(input("Personel Adı icin 1\n"
+                                "Personel Yaşı icin 2\n"
+                                "Personel Departman icin 3\n"
+                                "Personel Adres icin 4\n"
+                                "Personel Telefon icin 5\n"
+                                "Personel Maaşı icin 6\n"
+                                "Personel bildiği diller icin 7 secimi yapınız:"))
+
+        if(arama_secim == 1):
+            isim = str(input("aradığınız isim degerini giriniz:"))
+            if (isim in personel_dict[id]['Personel Adı']):
+                print("aranılan isim degeri bulunmaktadır")
+            elif (isim not in personel_dict[id]['Personel Adı']):
+                print("aranılan value degeri bulunmamaktadır")
+        elif(arama_secim == 2):
+            yas = int(input("aradığınız yas degerini giriniz:"))
+            if (yas in personel_dict[id]['Personel Yaşı']):
+                print("aranılan isim degeri bulunmaktadır")
+            elif (yas not in personel_dict[id]['Personel Yaşı']):
+                print("aranılan isim degeri bulunmamaktadır")
+        elif (arama_secim == 3):
+            departman = str(input("aradığınız departman degerini giriniz:"))
+            if (departman in personel_dict[id]['Personel Departman']):
+                print("aranılan departman degeri bulunmaktadır")
+            elif (departman not in personel_dict[id]['Personel Departman']):
+                print("aranılan departman degeri bulunmamaktadır")
+        elif (arama_secim == 4):
+            adres = str(input("aradığınız adres degerini giriniz:"))
+            if (adres in personel_dict[id]['Personel Adres']):
+                print("aranılan adres degeri bulunmaktadır")
+            elif (adres not in personel_dict[id]['Personel Adres']):
+                print("aranılan adres degeri bulunmamaktadır")
+        elif (arama_secim == 5):
+            telefon = int(input("aradığınız telefon degerini giriniz:"))
+            if (telefon in personel_dict[id]['Personel Telefon']):
+                print("aranılan telefon degeri bulunmaktadır")
+            elif (telefon not in personel_dict[id]['Personel Telefon']):
+                print("aranılan telefon degeri bulunmamaktadır")
+        elif (arama_secim == 6):
+            maas = int(input("aradığınız maas degerini giriniz:"))
+            if (maas in personel_dict[id]['Personel Maaşı']):
+                print("aranılan maaş degeri bulunmaktadır")
+            elif (maas not in personel_dict[id]['Personel Maaşı']):
+                print("aranılan maaş degeri bulunmamaktadır")
+        elif (arama_secim == 7):
+            dil = str(input("aradığınız maas degerini giriniz:"))
+            if (dil in personel_dict[id]['Personelin Bildiği Programlama Dilleri']):
+                print("aranılan dil degeri bulunmaktadır")
+            elif (dil not in personel_dict[id]['Personelin Bildiği Programlama Dilleri']):
+                print("aranılan dil degeri bulunmamaktadır")
         return True
     else:
         print("aranılan id değeri personel sözlüğümüzde bulunmamakktadır")
@@ -185,6 +211,7 @@ def personel_silme(personel_dict):
     print("yeni liste")
     for item in personel_dict:
         print("Key : {} , Value : {}".format(item, personel_dict[item]))
+    menuden_cikis()
 
 
 # çalışıyr
@@ -207,7 +234,7 @@ def personel_maas_hesaplama(personel_dict):
     personel_dict[id]['Personel Maaşı'].update(maas_hesabı)
     for item in personel_dict:
         print("Key : {} , Value : {}".format(item, personel_dict[item]))
-
+    menuden_cikis()
 
 # çalışıyor
 def menuden_cikis():
