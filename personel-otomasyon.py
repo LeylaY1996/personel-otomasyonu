@@ -1,22 +1,21 @@
 def title():
-    print("######################################################################################")
-    print("# PERSONEL OTOMASYON SİSTEMİ                                                         #")
-    print("######################################################################################")
+    print("#################################################")
+    print("#         PERSONEL OTOMASYON SİSTEMİ            #")
+    print("#################################################")
 
 def getChoice():
-    return int(input("Menüden seciminizi yapınız:(1 ve 8 arasında secim yapınız.1 ve 8 dahil) \nNumara buraya yazinz:"))
+    return int(input("Menüden seciminizi yapınız:(1 ve 8 arasında secim yapınız.1 ve 8 dahil) \nSeciminiz:"))
 
 def menu():
     print("\n\n*****************MENU*********************")
-    print("*1.Personel Dosyaya Yaz                  *")
-    print("*2.Personel Ekleme                       *")
-    print("*3.Personel Güncelleme                   *")
-    print("*4.Personel Arama                        *")
-    print("*5.Personel Silme                        *")
-    print("*6.Personel Maaş Hesaplama               *")
-    print("*7.Menüden Çıkış veya Menüye geri dönüş  *")
-    print("*8.Personel GÖrüntüleme                  *")
-    print("*9.Exit                                  *")
+    print("*1.Personel Ekleme                       *")
+    print("*2.Personel Güncelleme                   *")
+    print("*3.Personel Arama                        *")
+    print("*4.Personel Silme                        *")
+    print("*5.Personel Maaş Hesaplama               *")
+    print("*6.Personel Görüntüleme                  *")
+    print("*7.Personel Dosyaya Yaz                  *")
+    print("*8.Sistemden Çıkış                       *")
     print("**************************************   *")
 
 
@@ -219,30 +218,6 @@ def menuden_cikis():
         print("\nGoodbye...........")
         exit()
 
-def main_function(personel_dict):
-    personel_goruntuleme(personel_dict)
-    secim = int(input("Menüden seciminizi yapınız:(1 ve 8 arasında secim yapınız.1 ve 8 dahil)"))
-    if (secim < 9 and secim > 0):
-        if (secim == 1):
-            dosyaya_yaz(personel_dict)
-        elif (secim == 2):
-            personel_ekleme(personel_dict)
-        elif (secim == 3):
-            personel_guncelleme(personel_dict)
-        elif (secim == 4):
-            personel_arama(personel_dict)
-        elif (secim == 5):
-            personel_silme(personel_dict)
-        elif (secim == 6):
-            personel_maas_hesaplama(personel_dict)
-        elif (secim == 7):
-            menuden_cikis()
-        elif (secim == 8):
-            personel_goruntuleme(personel_dict)
-
-    else:
-        print("Doğru seçim yapınız")
-
 
 # main_function(personel_dict)
 def main():
@@ -252,24 +227,21 @@ def main():
     while True:
         if (secim < 10 and secim > 0):
             if (secim == 1):
-                dosyaya_yaz(personel_dict)
-            elif (secim == 2):
                 personel_ekleme(personel_dict)
-            elif (secim == 3):
+            elif (secim == 2):
                 personel_guncelleme(personel_dict)
-            elif (secim == 4):
+            elif (secim == 3):
                 personel_arama(personel_dict)
-            elif (secim == 5):
+            elif (secim == 4):
                 personel_silme(personel_dict)
-            elif (secim == 6):
+            elif (secim == 5):
                 personel_maas_hesaplama(personel_dict)
-            elif (secim == 7):
-                menuden_cikis()
-            elif (secim == 8):
+            elif (secim == 6):
                 personel_goruntuleme(personel_dict)
-            elif (secim == 9):
-                exit()
-            menuden_cikis()
+            elif (secim == 7):
+                dosyaya_yaz(personel_dict)
+            elif (secim == 8):
+                menuden_cikis()
         else:
             print("Doğru seçim yapınız")
 
