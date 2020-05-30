@@ -1,2 +1,1 @@
 0   {'Personel Adı': 'denme', 'Personel Yaşı': 25, 'Personel Departman': 'Mühendis', 'Personel Adres': 'njkjk', 'Personel Telefon': 0, 'Personel Maaşı': 3500, 'Personelin Bildiği Programlama Dilleri': ['Python', 'Php']}
-1   {'Personel Adı': 'Ford', 'Personel Yaşı': 25, 'Personel Departman': 'Mühendis', 'Personel Adres': 'njkjk', 'Personel Telefon': 0, 'Personel Maaşı': 3500, 'Personelin Bildiği Programlama Dilleri': ['Python', 'Php']}
